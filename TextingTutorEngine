@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class TextingTutorEngine {
+	//data members
+	private String testSentence;
+	private long timeScore;
+	private boolean correctInput;
+	
+	//constructor
+	public TextingTutorEngine() {
+		testSentence = "";
+		timeScore = 0;
+		correctInput = false;
+	}
+	//setters&getters
+	public void setTestSentence (String testSentence) {
+		this.testSentence = testSentence;
+	}
+	public long getTimeScore() {
+		return timeScore;
+	}
+	public boolean isCorrectInput() {
+		return correctInput;
+	}
+	//functionality
+	public void executeTutor() throws Exception {
+		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+		String inputString;
+		System.out.println("Hit ENTER to begin...");
+		keyboard.readLine();
+		StopWatch watch = new StopWatch();
+		System.out.println("Type: " + testSentence + "\n");
+		watch.startTimer();
+		inputString = keyboard.readLine();
+		watch.stopTimer();
+		timeScore = watch.getTime();
+		if(testSentence.equals(inputString)) 
+			correctInput = true;
+		else
+			correctInput = false;
+	}
+}
