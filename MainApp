@@ -1,0 +1,17 @@
+//times how fast you can type a given sentence
+//programmed by Joolean 1/27/18
+import java.io.IOException;
+
+public class TextingTutor {
+
+	public static void main(String[] args) throws Exception {
+
+		TextingTutorEngine tutorEngine = new TextingTutorEngine();
+		tutorEngine.setTestSentence("The quick brown fox jumps over the lazy dog");
+		tutorEngine.executeTutor();
+		if(tutorEngine.isCorrectInput())
+			System.out.println("Your time is " + tutorEngine.getTimeScore() + " milliseconds.");
+		else 
+			System.out.println("you DIED");	
+	}
+}
